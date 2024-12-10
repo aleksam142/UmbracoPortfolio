@@ -22,10 +22,12 @@ namespace AleksaPortfolio.Models.Global
             _content = content;
         }
 
-        private Homepage Home => _content.Root() as Homepage;
-        private IPage CurrentPage => _content as IPage;
+        private Homepage? Home => _content.Root() as Homepage;
+        private IPage? CurrentPage => _content as IPage;
 
         public HeaderLayout Header => new(Home?.MainHeaderLink, Home?.HeaderLinks);
-        public FooterLayout LinkUrl => new(Home?.CopyrightText, Home?.FooterLinks);
+        public FooterLayout Footer => new(Home?.CopyrightText, Home?.FooterLinks);
+        public OpenGraphLayout OpenGraph => new(CurrentPage?.OpengraphTitle, CurrentPage?.OpengraphDescription, CurrentPage?.OpengraphImage);
+        public string? PageTitle => CurrentPage?.PageTitle;
     }
 }

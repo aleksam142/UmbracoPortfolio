@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Umbraco.Cms.Core.Models;
 
 namespace AleksaPortfolio.Models.Interfaces
 {
@@ -13,6 +14,6 @@ namespace AleksaPortfolio.Models.Interfaces
 
         string OpengraphTitle { get; }
         string OpengraphDescription { get; }
-        Image OpengraphImage { get; }
+        MediaWithCrops OpengraphImage { get; }
     }
 }

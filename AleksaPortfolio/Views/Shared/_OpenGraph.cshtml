@@ -1,0 +1,12 @@
+﻿@model AleksaPortfolio.Models.Global.OpenGraphLayout
+
+@if (!string.IsNullOrWhiteSpace(Model.OpengraphTitle)){
+    <meta property="og:title" content="@Model.OpengraphTitle" />
+}
+@if (!string.IsNullOrWhiteSpace(Model.OpengraphDescription))
+{
+    <meta property="og:description" content="@Model.OpengraphDescription" />
+}
+@if (Model.OpengraphImage != null){
+    <meta property="og:image" content="@Model.OpengraphImage.Url()" />
+}
