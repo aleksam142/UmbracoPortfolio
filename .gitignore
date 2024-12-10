@@ -490,8 +490,3 @@ $RECYCLE.BIN/
 package-lock.json
 ood.flag
 appsettings.Development.json
-**/wwwroot/js/
-**/wwwroot/css/style.min.css
-**/wwwroot/assets/
-**/wwwroot/favicon/
-**/wwwroot/*.html
