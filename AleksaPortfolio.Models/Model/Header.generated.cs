@@ -65,7 +65,7 @@ namespace AleksaPortfolio.Models.Model
 		// properties
 
 		///<summary>
-		/// Header Links
+		/// Header Links: It will be displayed on the right side of header.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -78,7 +78,7 @@ namespace AleksaPortfolio.Models.Model
 		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> GetHeaderLinks(IHeader that, IPublishedValueFallback publishedValueFallback) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link>>(publishedValueFallback, "headerLinks");
 
 		///<summary>
-		/// Main Header Link
+		/// Main Header Link: It will be displayed on the left side of header.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]

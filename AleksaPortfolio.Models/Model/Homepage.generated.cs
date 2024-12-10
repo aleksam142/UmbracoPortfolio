@@ -20,7 +20,7 @@ namespace AleksaPortfolio.Models.Model
 {
 	/// <summary>Homepage</summary>
 	[PublishedModel("homepage")]
-	public partial class Homepage : PublishedContentModel, IFooter, IHeader
+	public partial class Homepage : PublishedContentModel, IFooter, IHeader, IPageProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -66,7 +66,7 @@ namespace AleksaPortfolio.Models.Model
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> FooterLinks => global::AleksaPortfolio.Models.Model.Footer.GetFooterLinks(this, _publishedValueFallback);
 
 		///<summary>
-		/// Header Links
+		/// Header Links: It will be displayed on the right side of header.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
@@ -74,11 +74,43 @@ namespace AleksaPortfolio.Models.Model
 		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.Link> HeaderLinks => global::AleksaPortfolio.Models.Model.Header.GetHeaderLinks(this, _publishedValueFallback);
 
 		///<summary>
-		/// Main Header Link
+		/// Main Header Link: It will be displayed on the left side of header.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("mainHeaderLink")]
 		public virtual global::Umbraco.Cms.Core.Models.Link MainHeaderLink => global::AleksaPortfolio.Models.Model.Header.GetMainHeaderLink(this, _publishedValueFallback);
+
+		///<summary>
+		/// Opengraph Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("opengraphDescription")]
+		public virtual string OpengraphDescription => global::AleksaPortfolio.Models.Model.PageProperties.GetOpengraphDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// Opengraph Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("opengraphImage")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops OpengraphImage => global::AleksaPortfolio.Models.Model.PageProperties.GetOpengraphImage(this, _publishedValueFallback);
+
+		///<summary>
+		/// Opengraph Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("opengraphTitle")]
+		public virtual string OpengraphTitle => global::AleksaPortfolio.Models.Model.PageProperties.GetOpengraphTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Title: Will be displayed as browser tab text.
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::AleksaPortfolio.Models.Model.PageProperties.GetPageTitle(this, _publishedValueFallback);
 	}
 }
