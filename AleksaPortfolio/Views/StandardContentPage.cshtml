@@ -1,0 +1,14 @@
+﻿@using AleksaPortfolio.Models.Global
+@using AleksaPortfolio.Models.Model
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits UmbracoViewPage<StandardContentPage>
+@{
+	var layoutModel = new LayoutModel(Umbraco.AssignedContentItem);
+	ViewData["LayoutModel"] = layoutModel;
+	Layout = "MainTemplate.cshtml";
+}
+
+@if(Model.Modules != null && Model.Modules.Any())
+{
+	@await Html.GetBlockListHtmlAsync(Model.Modules)
+}
