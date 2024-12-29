@@ -1,1 +1,32 @@
-﻿
+﻿@model AleksaPortfolio.Models.Global.FooterLayout
+
+<footer class="bg-white py-4 mt-auto">
+    <div class="container px-5">
+        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+            @if(!string.IsNullOrWhiteSpace(Model.CopyrightText))
+            {
+                <div class="col-auto"><div class="small m-0">@Model.CopyrightText</div></div>
+            }
+            @if(Model.Links != null && Model.Links.Any())
+            {
+                <div class="col-auto">
+                    @for (int i = 0; i < Model.Links.Count(); i++)
+                    {
+                        var item = Model.Links[i];
+                        bool isLast = (i == Model.Links.Count() - 1);
+
+                        if(isLast)
+                        {
+                            <a class="small" href="@item.Url" target="@item.Target">@item.Name</a>
+                        }
+                        else
+                        {
+                            <a class="small" href="@item.Url" target="@item.Target">@item.Name</a>
+                            <span class="mx-1">·</span>
+                        }
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</footer>

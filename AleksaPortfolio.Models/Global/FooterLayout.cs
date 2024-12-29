@@ -12,10 +12,10 @@ namespace AleksaPortfolio.Models.Global
         public FooterLayout(string? copyrightText, IEnumerable<Link>? links)
         {
             CopyrightText = copyrightText;
-            Links = links;
+            Links = links?.ToArray();
         }
 
         public string? CopyrightText { get; set; }
-        public IEnumerable<Link>? Links { get; set; }
+        public Link[]? Links { get; set; }
     }
 }

@@ -27,7 +27,7 @@
         <main class="flex-shrink-0">
             @await Html.PartialAsync("./Shared/_Header.cshtml", layoutModel.Header)
             @RenderBody()
-            @layoutModel.Footer.CopyrightText
+            @await Html.PartialAsync("./Shared/_Footer.cshtml", layoutModel.Footer)
         </main>
     </body>	
 }
