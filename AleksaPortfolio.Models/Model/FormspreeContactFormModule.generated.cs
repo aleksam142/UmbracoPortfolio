@@ -18,7 +18,7 @@ using Umbraco.Extensions;
 
 namespace AleksaPortfolio.Models.Model
 {
-	/// <summary>Formspree Contact Form Module</summary>
+	/// <summary>Form Module</summary>
 	[PublishedModel("formspreeContactFormModule")]
 	public partial class FormspreeContactFormModule : PublishedElementModel
 	{
@@ -48,6 +48,14 @@ namespace AleksaPortfolio.Models.Model
 		}
 
 		// properties
+
+		///<summary>
+		/// Embed Form: Enter a code with wrapped {form} tabs
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("embedForm")]
+		public virtual string EmbedForm => this.Value<string>(_publishedValueFallback, "embedForm");
 
 		///<summary>
 		/// Form Description
