@@ -1,4 +1,6 @@
 using AleksaPortfolio.Models.Converter;
+using AleksaPortfolio.Models.Factory;
+using AleksaPortfolio.Models.Interfaces;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,11 @@ builder.CreateUmbracoBuilder()
     .AddComposers()
     .Build();
 
-builder.Services.AddSingleton<ModuleConverter>();
+builder.Services.AddControllers();
+builder.Services.AddTransient<IFormspreeFormModuleFactory, FormspreeFormModuleFactory>();
+builder.Services.AddTransient<IIntroTextModuleFactory, IntroTextModuleFactory>();
+builder.Services.AddTransient<IIntroLinkFactory, IntroLinkFactory>();
+builder.Services.AddScoped<IModuleConverter, ModuleConverter>();
 
 WebApplication app = builder.Build();
 

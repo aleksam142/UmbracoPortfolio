@@ -1,55 +1,39 @@
 ﻿using AleksaPortfolio.Models.Interfaces;
-using AleksaPortfolio.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Umbraco.Cms.Core.Models.PublishedContent;
-using Umbraco.Extensions;
 
 namespace AleksaPortfolio.Models.Converter
 {
-    public class ModuleConverter
+    public class ModuleConverter : IModuleConverter
     {
-        private readonly IPublishedValueFallback _publishedValueFallback;
+        private readonly IFormspreeFormModuleFactory _formspreeFormModuleFactory;
+        private readonly IIntroTextModuleFactory _introFactory;
+        private readonly IIntroLinkFactory _introLinkFactory;
 
-        private readonly Dictionary<string, Func<IPublishedElement, IModuleViewModel>> _moduleMappings;
-
-        public ModuleConverter(IPublishedValueFallback publishedValueFallback)
+        public ModuleConverter(IFormspreeFormModuleFactory formspreeFormModuleFactory,
+                                IIntroTextModuleFactory introFactory,
+                                IIntroLinkFactory introLinkFactory)
         {
-            _publishedValueFallback = publishedValueFallback;
-
-            _moduleMappings = new Dictionary<string, Func<IPublishedElement, IModuleViewModel>>
-        {
-            {
-                "formspreeContactFormModule",
-                element => new FormspreeFormModuleViewModel
-                {
-                    FormTitle = GetPropertyValue<string>(element, "formTitle"),
-                    FormDescription = GetPropertyValue<string>(element, "formDescription"),
-                    EmbedForm = GetPropertyValue<string>(element, "embedForm")
-                }
-            }
-        };
+            _formspreeFormModuleFactory = formspreeFormModuleFactory;
+            _introFactory = introFactory;
+            _introLinkFactory = introLinkFactory;
         }
 
-        public IModuleViewModel Convert(IPublishedElement element)
+        public IModuleViewModel ConvertViewModel(IPublishedElement element)
         {
-            if (element == null) throw new ArgumentNullException(nameof(element));
-
-            if (_moduleMappings.TryGetValue(element.ContentType.Alias, out var converter))
+            IModuleViewModel viewModel = element.ContentType.Alias switch
             {
-                return converter(element);
-            }
+                "formspreeContactFormModule" => _formspreeFormModuleFactory.Create(element),
+                "introTextModule" => _introFactory.Create(element),
+                "introLink" => _introLinkFactory.Create(element),
+                _ => throw new InvalidOperationException($"No factory found for element type '{element.ContentType.Alias}'.")
+            };
 
-            throw new InvalidOperationException($"No converter found for element type '{element.ContentType.Alias}'.");
-        }
-
-        private T? GetPropertyValue<T>(IPublishedElement element, string alias)
-        {
-            var property = element.GetProperty(alias);
-            return property != null ? (T?)property.GetValue() : default;
+            return viewModel;
         }
     }
 }

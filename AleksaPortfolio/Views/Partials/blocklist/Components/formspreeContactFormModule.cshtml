@@ -1,24 +1,23 @@
-﻿@inject AleksaPortfolio.Models.Converter.ModuleConverter Converter
-
-@{
-    var viewModel = Converter.Convert(Model.Content);
-}
+﻿@model AleksaPortfolio.Models.ViewModels.FormspreeFormModuleViewModel
 
 <div class="bg-light rounded-4 py-5 px-4 px-md-5">
     <div class="text-center mb-5">
         <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-        @if(!string.IsNullOrWhiteSpace(viewModel?.FormTitle))
+        @if(!string.IsNullOrWhiteSpace(Model?.FormTitle))
         {
-            <h1 class="fw-bolder">@viewModel?.FormTitle</h1>
+            <h1 class="fw-bolder">@Model?.FormTitle</h1>
         }
-        @if(!string.IsNullOrWhiteSpace(viewModel?.FormDescription))
+        @if(!string.IsNullOrWhiteSpace(Model?.FormDescription))
         {
-            <p class="lead fw-normal text-muted mb-0">@viewModel?.FormDescription</p>
+            <p class="lead fw-normal text-muted mb-0">@Model?.FormDescription</p>
         }
     </div>
-    <div class="row gx-5 justify-content-center">
-        <div class="col-lg-8 col-xl-6">
-            @Html.Raw(viewModel?.EmbedForm)
+    @if(!string.IsNullOrWhiteSpace(Model?.EmbedForm))
+    {
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+                @Html.Raw(Model?.EmbedForm)
+            </div>
         </div>
-    </div>
+    }
 </div>

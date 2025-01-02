@@ -1,9 +1,18 @@
-﻿@using AleksaPortfolio.Models.Global
+﻿@inject AleksaPortfolio.Models.Interfaces.IModuleConverter ModuleConverter
+@using AleksaPortfolio.Models.Global
 @using AleksaPortfolio.Models.Model
 @using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits UmbracoViewPage<Homepage>
 @{
-	var layoutModel = new LayoutModel(Umbraco.AssignedContentItem);
-	ViewData["LayoutModel"] = layoutModel;
-	Layout = "MainTemplate.cshtml";
+    var layoutModel = new LayoutModel(Umbraco.AssignedContentItem);
+    ViewData["LayoutModel"] = layoutModel;
+    Layout = "MainTemplate.cshtml";
+}
+
+@if (Model.Modules != null && Model.Modules.Any())
+{
+    foreach(var module in Model.Modules)
+    {
+        @await Html.PartialAsync($"~/Views/Partials/blocklist/Components/{module.Content.ContentType.Alias}.cshtml", ModuleConverter.ConvertViewModel(module.Content))
+    }
 }

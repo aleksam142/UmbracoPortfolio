@@ -50,6 +50,14 @@ namespace AleksaPortfolio.Models.Model
 		// properties
 
 		///<summary>
+		/// Modules
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("modules")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel Modules => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "modules");
+
+		///<summary>
 		/// Copyright Text: Positioned on the left side of footer.
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
