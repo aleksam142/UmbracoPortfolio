@@ -12,9 +12,11 @@ builder.CreateUmbracoBuilder()
     .Build();
 
 builder.Services.AddControllers();
-builder.Services.AddTransient<IFormspreeFormModuleFactory, FormspreeFormModuleFactory>();
-builder.Services.AddTransient<IIntroTextModuleFactory, IntroTextModuleFactory>();
-builder.Services.AddTransient<IIntroLinkFactory, IntroLinkFactory>();
+builder.Services.AddSingleton<IFormspreeFormModuleFactory, FormspreeFormModuleFactory>();
+builder.Services.AddSingleton<ISocialIconFactory, SocialIconFactory>();
+builder.Services.AddSingleton<ISocialModuleFactory, SocialModuleFactory>();
+builder.Services.AddSingleton<IIntroLinkFactory, IntroLinkFactory>();
+builder.Services.AddSingleton<IIntroTextModuleFactory, IntroTextModuleFactory>();
 builder.Services.AddScoped<IModuleConverter, ModuleConverter>();
 
 WebApplication app = builder.Build();

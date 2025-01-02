@@ -13,14 +13,20 @@ namespace AleksaPortfolio.Models.Converter
         private readonly IFormspreeFormModuleFactory _formspreeFormModuleFactory;
         private readonly IIntroTextModuleFactory _introFactory;
         private readonly IIntroLinkFactory _introLinkFactory;
+        private readonly ISocialIconFactory _socialIconFactory;
+        private readonly ISocialModuleFactory _socialModuleFactory;
 
         public ModuleConverter(IFormspreeFormModuleFactory formspreeFormModuleFactory,
                                 IIntroTextModuleFactory introFactory,
-                                IIntroLinkFactory introLinkFactory)
+                                IIntroLinkFactory introLinkFactory,
+                                ISocialIconFactory socialIconFactory,
+                                ISocialModuleFactory socialModuleFactory)
         {
             _formspreeFormModuleFactory = formspreeFormModuleFactory;
             _introFactory = introFactory;
             _introLinkFactory = introLinkFactory;
+            _socialIconFactory = socialIconFactory;
+            _socialModuleFactory = socialModuleFactory;
         }
 
         public IModuleViewModel ConvertViewModel(IPublishedElement element)
@@ -30,6 +36,8 @@ namespace AleksaPortfolio.Models.Converter
                 "formspreeContactFormModule" => _formspreeFormModuleFactory.Create(element),
                 "introTextModule" => _introFactory.Create(element),
                 "introLink" => _introLinkFactory.Create(element),
+                "socialIcon" => _socialIconFactory.Create(element),
+                "socialModule" => _socialModuleFactory.Create(element),
                 _ => throw new InvalidOperationException($"No factory found for element type '{element.ContentType.Alias}'.")
             };
 

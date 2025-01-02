@@ -13,6 +13,6 @@
 {
     foreach(var module in Model.Modules)
     {
-        @await Html.PartialAsync($"~/Views/Partials/blocklist/Components/{module.Content.ContentType.Alias}.cshtml", ModuleConverter.ConvertViewModel(module.Content))
+        @await Html.RenderModuleAsync(module, ModuleConverter)
     }
 }
