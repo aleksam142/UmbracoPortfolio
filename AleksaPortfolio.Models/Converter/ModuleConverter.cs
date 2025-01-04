@@ -16,13 +16,17 @@ namespace AleksaPortfolio.Models.Converter
         private readonly ISocialIconFactory _socialIconFactory;
         private readonly ISocialModuleFactory _socialModuleFactory;
         private readonly ISimpleHeadingModuleFactory _simpleHeadingFactory;
+        private readonly IPortfolioCardsModuleFactory _portfolioCardsModuleFactory;
+        private readonly IPortfolioListingCardFactory _portfolioListingCardFactory;
 
         public ModuleConverter(IFormspreeFormModuleFactory formspreeFormModuleFactory,
                                 IIntroTextModuleFactory introFactory,
                                 IIntroLinkFactory introLinkFactory,
                                 ISocialIconFactory socialIconFactory,
                                 ISocialModuleFactory socialModuleFactory,
-                                ISimpleHeadingModuleFactory simpleHeadingFactory)
+                                ISimpleHeadingModuleFactory simpleHeadingFactory,
+                                IPortfolioCardsModuleFactory portfolioCardsModuleFactory,
+                                IPortfolioListingCardFactory portfolioListingCardFactory)
         {
             _formspreeFormModuleFactory = formspreeFormModuleFactory;
             _introFactory = introFactory;
@@ -30,6 +34,8 @@ namespace AleksaPortfolio.Models.Converter
             _socialIconFactory = socialIconFactory;
             _socialModuleFactory = socialModuleFactory;
             _simpleHeadingFactory = simpleHeadingFactory;
+            _portfolioCardsModuleFactory = portfolioCardsModuleFactory;
+            _portfolioListingCardFactory = portfolioListingCardFactory;
         }
 
         public IModuleViewModel ConvertViewModel(IPublishedElement element)
@@ -37,6 +43,8 @@ namespace AleksaPortfolio.Models.Converter
             IModuleViewModel viewModel = element.ContentType.Alias switch
             {
                 "formspreeContactFormModule" => _formspreeFormModuleFactory.Create(element),
+                "portfolioCardsModule" => _portfolioCardsModuleFactory.Create(element),
+                "portfolioListingCard" => _portfolioListingCardFactory.Create(element),
                 "introTextModule" => _introFactory.Create(element),
                 "introLink" => _introLinkFactory.Create(element),
                 "socialIcon" => _socialIconFactory.Create(element),

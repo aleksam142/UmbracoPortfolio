@@ -18,6 +18,8 @@ builder.Services.AddSingleton<ISocialModuleFactory, SocialModuleFactory>();
 builder.Services.AddSingleton<IIntroLinkFactory, IntroLinkFactory>();
 builder.Services.AddSingleton<IIntroTextModuleFactory, IntroTextModuleFactory>();
 builder.Services.AddSingleton<ISimpleHeadingModuleFactory, SimpleHeadingModuleFactory>();
+builder.Services.AddSingleton<IPortfolioListingCardFactory, PortfolioListingCardFactory>();
+builder.Services.AddSingleton<IPortfolioCardsModuleFactory, PortfolioCardsModuleFactory>();
 builder.Services.AddScoped<IModuleConverter, ModuleConverter>();
 
 WebApplication app = builder.Build();
