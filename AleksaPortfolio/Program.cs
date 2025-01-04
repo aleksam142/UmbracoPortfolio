@@ -23,6 +23,8 @@ builder.Services.AddSingleton<IPortfolioCardsModuleFactory, PortfolioCardsModule
 builder.Services.AddSingleton<ISkillsModuleFactory, SkillsModuleFactory>();
 builder.Services.AddSingleton<ISkillGroupFactory, SkillGroupFactory>();
 builder.Services.AddSingleton<ILinkTextModuleFactory, LinkTextModuleFactory>();
+builder.Services.AddSingleton<IProjectCardFactory, ProjectCardFactory>();
+builder.Services.AddSingleton<IProjectsModuleFactory, ProjectsModuleFactory>();
 builder.Services.AddScoped<IModuleConverter, ModuleConverter>();
 
 WebApplication app = builder.Build();

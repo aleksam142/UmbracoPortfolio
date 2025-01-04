@@ -21,6 +21,8 @@ namespace AleksaPortfolio.Models.Converter
         private readonly ISkillsModuleFactory _skillsModuleFactory;
         private readonly ISkillGroupFactory _skillGroupFactory;
         private readonly ILinkTextModuleFactory _linkTextFactory;
+        private readonly IProjectCardFactory _projectCardFactory;
+        private readonly IProjectsModuleFactory _projectsModuleFactory;
 
         public ModuleConverter(IFormspreeFormModuleFactory formspreeFormModuleFactory,
                                 IIntroTextModuleFactory introFactory,
@@ -32,7 +34,9 @@ namespace AleksaPortfolio.Models.Converter
                                 IPortfolioListingCardFactory portfolioListingCardFactory,
                                 ISkillsModuleFactory skillsModuleFactory,
                                 ISkillGroupFactory skillGroupFactory,
-                                ILinkTextModuleFactory linkTextFactory)
+                                ILinkTextModuleFactory linkTextFactory,
+                                IProjectCardFactory projectCardFactory,
+                                IProjectsModuleFactory projectsModuleFactory)
         {
             _formspreeFormModuleFactory = formspreeFormModuleFactory;
             _introFactory = introFactory;
@@ -45,6 +49,8 @@ namespace AleksaPortfolio.Models.Converter
             _skillsModuleFactory = skillsModuleFactory;
             _skillGroupFactory = skillGroupFactory;
             _linkTextFactory = linkTextFactory;
+            _projectCardFactory = projectCardFactory;
+            _projectsModuleFactory = projectsModuleFactory;
         }
 
         public IModuleViewModel ConvertViewModel(IPublishedElement element)
@@ -62,6 +68,8 @@ namespace AleksaPortfolio.Models.Converter
                 "skillsModule" => _skillsModuleFactory.Create(element),
                 "skillGroup" => _skillGroupFactory.Create(element),
                 "linkTextModule" => _linkTextFactory.Create(element),
+                "projectCard" => _projectCardFactory.Create(element),
+                "projectsModule" => _projectsModuleFactory.Create(element),
                 _ => throw new InvalidOperationException($"No factory found for element type '{element.ContentType.Alias}'.")
             };
 
