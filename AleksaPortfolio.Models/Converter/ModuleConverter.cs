@@ -18,6 +18,8 @@ namespace AleksaPortfolio.Models.Converter
         private readonly ISimpleHeadingModuleFactory _simpleHeadingFactory;
         private readonly IPortfolioCardsModuleFactory _portfolioCardsModuleFactory;
         private readonly IPortfolioListingCardFactory _portfolioListingCardFactory;
+        private readonly ISkillsModuleFactory _skillsModuleFactory;
+        private readonly ISkillGroupFactory _skillGroupFactory;
 
         public ModuleConverter(IFormspreeFormModuleFactory formspreeFormModuleFactory,
                                 IIntroTextModuleFactory introFactory,
@@ -26,7 +28,9 @@ namespace AleksaPortfolio.Models.Converter
                                 ISocialModuleFactory socialModuleFactory,
                                 ISimpleHeadingModuleFactory simpleHeadingFactory,
                                 IPortfolioCardsModuleFactory portfolioCardsModuleFactory,
-                                IPortfolioListingCardFactory portfolioListingCardFactory)
+                                IPortfolioListingCardFactory portfolioListingCardFactory,
+                                ISkillsModuleFactory skillsModuleFactory,
+                                ISkillGroupFactory skillGroupFactory)
         {
             _formspreeFormModuleFactory = formspreeFormModuleFactory;
             _introFactory = introFactory;
@@ -36,6 +40,8 @@ namespace AleksaPortfolio.Models.Converter
             _simpleHeadingFactory = simpleHeadingFactory;
             _portfolioCardsModuleFactory = portfolioCardsModuleFactory;
             _portfolioListingCardFactory = portfolioListingCardFactory;
+            _skillsModuleFactory = skillsModuleFactory;
+            _skillGroupFactory = skillGroupFactory;
         }
 
         public IModuleViewModel ConvertViewModel(IPublishedElement element)
@@ -50,6 +56,8 @@ namespace AleksaPortfolio.Models.Converter
                 "socialIcon" => _socialIconFactory.Create(element),
                 "socialModule" => _socialModuleFactory.Create(element),
                 "simpleHeadingModule" => _simpleHeadingFactory.Create(element),
+                "skillsModule" => _skillsModuleFactory.Create(element),
+                "skillGroup" => _skillGroupFactory.Create(element),
                 _ => throw new InvalidOperationException($"No factory found for element type '{element.ContentType.Alias}'.")
             };
 

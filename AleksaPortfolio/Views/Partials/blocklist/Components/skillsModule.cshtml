@@ -1,0 +1,16 @@
+﻿@inject AleksaPortfolio.Models.Interfaces.IModuleConverter ModuleConverter
+@model AleksaPortfolio.Models.ViewModels.SkillsModuleViewModel
+
+@if(Model.SkillGroups != null && Model.SkillGroups.Any())
+{
+    <section>
+        <div class="card shadow border-0 rounded-4 mb-5">
+            <div class="card-body p-5">
+                @foreach(var group in Model.SkillGroups)
+                {
+                    @await Html.RenderModuleAsync(group, ModuleConverter)
+                }
+            </div>
+        </div>
+    </section>
+}

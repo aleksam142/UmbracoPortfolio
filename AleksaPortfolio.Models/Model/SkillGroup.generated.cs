@@ -18,14 +18,14 @@ using Umbraco.Extensions;
 
 namespace AleksaPortfolio.Models.Model
 {
-	/// <summary>Skills Module</summary>
-	[PublishedModel("skillsModule")]
-	public partial class SkillsModule : PublishedElementModel
+	/// <summary>Skill Group</summary>
+	[PublishedModel("skillGroup")]
+	public partial class SkillGroup : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
-		public new const string ModelTypeAlias = "skillsModule";
+		public new const string ModelTypeAlias = "skillGroup";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
@@ -34,14 +34,14 @@ namespace AleksaPortfolio.Models.Model
 			=> PublishedModelUtility.GetModelContentType(publishedSnapshotAccessor, ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<SkillsModule, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedSnapshotAccessor publishedSnapshotAccessor, Expression<Func<SkillGroup, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(publishedSnapshotAccessor), selector);
 #pragma warning restore 0109
 
 		private IPublishedValueFallback _publishedValueFallback;
 
 		// ctor
-		public SkillsModule(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
+		public SkillGroup(IPublishedElement content, IPublishedValueFallback publishedValueFallback)
 			: base(content, publishedValueFallback)
 		{
 			_publishedValueFallback = publishedValueFallback;
@@ -50,11 +50,27 @@ namespace AleksaPortfolio.Models.Model
 		// properties
 
 		///<summary>
-		/// Skill Groups
+		/// Group Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("skillGroups")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel SkillGroups => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "skillGroups");
+		[ImplementPropertyType("groupTitle")]
+		public virtual string GroupTitle => this.Value<string>(_publishedValueFallback, "groupTitle");
+
+		///<summary>
+		/// Icon: Embed code for a icon from Bootstrap icons: https://icons.getbootstrap.com/
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("icon")]
+		public virtual string Icon => this.Value<string>(_publishedValueFallback, "icon");
+
+		///<summary>
+		/// Skills
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("skills")]
+		public virtual global::System.Collections.Generic.IEnumerable<string> Skills => this.Value<global::System.Collections.Generic.IEnumerable<string>>(_publishedValueFallback, "skills");
 	}
 }
