@@ -18,3 +18,11 @@
 		}
 	</div>
 }
+
+@if(Model.CallToActionCards != null && Model.CallToActionCards.Any())
+{
+	foreach(var card in Model.CallToActionCards)
+	{
+		@await Html.RenderModuleAsync(card, ModuleConverter)
+	}
+}

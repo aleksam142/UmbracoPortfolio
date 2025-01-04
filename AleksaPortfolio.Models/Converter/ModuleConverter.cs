@@ -20,6 +20,7 @@ namespace AleksaPortfolio.Models.Converter
         private readonly IPortfolioListingCardFactory _portfolioListingCardFactory;
         private readonly ISkillsModuleFactory _skillsModuleFactory;
         private readonly ISkillGroupFactory _skillGroupFactory;
+        private readonly ILinkTextModuleFactory _linkTextFactory;
 
         public ModuleConverter(IFormspreeFormModuleFactory formspreeFormModuleFactory,
                                 IIntroTextModuleFactory introFactory,
@@ -30,7 +31,8 @@ namespace AleksaPortfolio.Models.Converter
                                 IPortfolioCardsModuleFactory portfolioCardsModuleFactory,
                                 IPortfolioListingCardFactory portfolioListingCardFactory,
                                 ISkillsModuleFactory skillsModuleFactory,
-                                ISkillGroupFactory skillGroupFactory)
+                                ISkillGroupFactory skillGroupFactory,
+                                ILinkTextModuleFactory linkTextFactory)
         {
             _formspreeFormModuleFactory = formspreeFormModuleFactory;
             _introFactory = introFactory;
@@ -42,6 +44,7 @@ namespace AleksaPortfolio.Models.Converter
             _portfolioListingCardFactory = portfolioListingCardFactory;
             _skillsModuleFactory = skillsModuleFactory;
             _skillGroupFactory = skillGroupFactory;
+            _linkTextFactory = linkTextFactory;
         }
 
         public IModuleViewModel ConvertViewModel(IPublishedElement element)
@@ -58,6 +61,7 @@ namespace AleksaPortfolio.Models.Converter
                 "simpleHeadingModule" => _simpleHeadingFactory.Create(element),
                 "skillsModule" => _skillsModuleFactory.Create(element),
                 "skillGroup" => _skillGroupFactory.Create(element),
+                "linkTextModule" => _linkTextFactory.Create(element),
                 _ => throw new InvalidOperationException($"No factory found for element type '{element.ContentType.Alias}'.")
             };
 

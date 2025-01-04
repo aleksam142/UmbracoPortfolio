@@ -50,6 +50,14 @@ namespace AleksaPortfolio.Models.Model
 		// properties
 
 		///<summary>
+		/// Call To Action Cards
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("callToActionCards")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel CallToActionCards => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "callToActionCards");
+
+		///<summary>
 		/// Modules
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "13.5.2+3431f76")]
