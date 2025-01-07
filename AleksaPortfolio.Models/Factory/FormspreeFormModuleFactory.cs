@@ -24,7 +24,9 @@ namespace AleksaPortfolio.Models.Factory
 
             return new FormspreeFormModuleViewModel
             {
-                FormTitle = GetPropertyValue<string>(element, "formTitle")
+                FormTitle = GetPropertyValue<string>(element, "formTitle"),
+                FormDescription = GetPropertyValue<string>(element, "formDescription"),
+                EmbedForm = GetPropertyValue<string>(element, "embedForm")
             };
         }
 
