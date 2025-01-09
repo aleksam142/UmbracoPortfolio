@@ -1,0 +1,13 @@
+C:\UmbracoPortfolio\AleksaPortfolio.Models\bin\Debug\net8.0\AleksaPortfolio.Models.deps.json
+C:\UmbracoPortfolio\AleksaPortfolio.Models\bin\Debug\net8.0\AleksaPortfolio.Models.dll
+C:\UmbracoPortfolio\AleksaPortfolio.Models\bin\Debug\net8.0\AleksaPortfolio.Models.pdb
+C:\UmbracoPortfolio\AleksaPortfolio.Models\obj\Debug\net8.0\AleksaPortfolio.Models.csproj.AssemblyReference.cache
+C:\UmbracoPortfolio\AleksaPortfolio.Models\obj\Debug\net8.0\AleksaPortfolio.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\UmbracoPortfolio\AleksaPortfolio.Models\obj\Debug\net8.0\AleksaPortfolio.Models.AssemblyInfoInputs.cache
+C:\UmbracoPortfolio\AleksaPortfolio.Models\obj\Debug\net8.0\AleksaPortfolio.Models.AssemblyInfo.cs
+C:\UmbracoPortfolio\AleksaPortfolio.Models\obj\Debug\net8.0\AleksaPortfolio.Models.csproj.CoreCompileInputs.cache
+C:\UmbracoPortfolio\AleksaPortfolio.Models\obj\Debug\net8.0\AleksaPortfolio.Models.sourcelink.json
+C:\UmbracoPortfolio\AleksaPortfolio.Models\obj\Debug\net8.0\AleksaPortfolio.Models.dll
+C:\UmbracoPortfolio\AleksaPortfolio.Models\obj\Debug\net8.0\refint\AleksaPortfolio.Models.dll
+C:\UmbracoPortfolio\AleksaPortfolio.Models\obj\Debug\net8.0\AleksaPortfolio.Models.pdb
+C:\UmbracoPortfolio\AleksaPortfolio.Models\obj\Debug\net8.0\ref\AleksaPortfolio.Models.dll
