@@ -1,0 +1,10 @@
+﻿@model AleksaPortfolio.Models.ViewModels.IntroLinkViewModel
+
+@if (Model.BlueColor)
+{
+    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="@Model.Link?.Url" target="@Model.Link?.Target">@Model.Link?.Name</a>
+}
+else
+{
+    <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="@Model.Link?.Url" target="@Model.Link?.Target">@Model.Link?.Name</a>
+}

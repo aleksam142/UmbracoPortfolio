@@ -1,0 +1,18 @@
+﻿@inject AleksaPortfolio.Models.Interfaces.IModuleConverter ModuleConverter
+@using AleksaPortfolio.Models.Global
+@using AleksaPortfolio.Models.Model
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits UmbracoViewPage<Homepage>
+@{
+    var layoutModel = new LayoutModel(Umbraco.AssignedContentItem);
+    ViewData["LayoutModel"] = layoutModel;
+    Layout = "MainTemplate.cshtml";
+}
+
+@if (Model.Modules != null && Model.Modules.Any())
+{
+    foreach(var module in Model.Modules)
+    {
+        @await Html.RenderModuleAsync(module, ModuleConverter)
+    }
+}

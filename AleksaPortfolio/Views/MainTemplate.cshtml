@@ -1,0 +1,36 @@
+﻿@using AleksaPortfolio.Models.Global
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = null;
+	var layoutModel = (ViewData["LayoutModel"] as LayoutModel != null) ? ViewData["LayoutModel"] as LayoutModel : null;
+}
+
+@if(layoutModel != null){
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="Portfolio, Umbraco, Website" />
+        <meta name="description" content="Portfolio website">
+        <meta name="author" content="Aleksa Marinkovic">
+        @await Html.PartialAsync("./Shared/_OpenGraph.cshtml", layoutModel.OpenGraph)
+        <meta property="og:url" content="@Model.Url()" />
+        <title>@layoutModel.PageTitle</title>
+        <link rel="icon" type="image/x-icon" href="~/assets/armenia_16316514.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+        <link href="~/css/styles.css" rel="stylesheet">
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            @await Html.PartialAsync("./Shared/_Header.cshtml", layoutModel.Header)
+            @RenderBody()
+            @await Html.PartialAsync("./Shared/_Footer.cshtml", layoutModel.Footer)
+        </main>
+    </body>	
+}
+else{
+	<h1>FATAL ERROR</h1>
+}

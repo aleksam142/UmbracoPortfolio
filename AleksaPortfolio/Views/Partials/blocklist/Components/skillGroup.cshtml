@@ -1,0 +1,32 @@
+﻿@model AleksaPortfolio.Models.ViewModels.SkillGroupViewModel
+
+<div class="mb-5">
+    <div class="d-flex align-items-center mb-4">
+        @if(!string.IsNullOrWhiteSpace(Model.EmbedIcon))
+        {
+            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3">
+                @Html.Raw(Model.EmbedIcon)
+            </div>
+        }
+        @if(!string.IsNullOrWhiteSpace(Model.GroupTitle))
+        {
+            <h3 class="fw-bolder mb-0"><span class="text-gradient d-inline">@Model.GroupTitle</span></h3>
+        }
+    </div>
+    @if(Model.Skills != null && Model.Skills.Any())
+    {
+        @for (int i = 0; i < Model.Skills.Count(); i += 3)
+        {
+            <div class="row row-cols-1 row-cols-md-3 @(i == 0 ? "mb-4" : "")">
+                @for (int j = i; j < i + 3 && j < Model.Skills.Count(); j++)
+                {
+                    <div class="@(j % 3 == 2 || j == Model.Skills.Count() - 1 ? "col" : "col mb-4 mb-md-0")">
+                        <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                            @Model.Skills[j]
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    }
+</div>

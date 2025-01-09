@@ -1,0 +1,29 @@
+﻿@inject AleksaPortfolio.Models.Interfaces.IModuleConverter ModuleConverter
+@model AleksaPortfolio.Models.ViewModels.PortfolioCardsModuleViewModel
+
+<section>
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        @if(!string.IsNullOrWhiteSpace(Model.Title))
+        {
+            <h2 class="text-@Model.TitleColor fw-bolder mb-0">@Model.Title</h2>
+        }
+        @if(Model.PortfolioLinks != null && Model.PortfolioLinks.Any())
+        {
+            foreach(var link in Model.PortfolioLinks)
+            {
+                <a class="btn btn-primary px-4 py-3" href="@link.Url" download>
+                    <div class="d-inline-block bi bi-download me-2"></div>
+                    @link.Name
+                </a>
+            }
+        }
+    </div>
+
+    @if(Model.Cards != null && Model.Cards.Any())
+    {
+        foreach(var card in Model.Cards)
+        {
+            @await Html.RenderModuleAsync(card, ModuleConverter)
+        }
+    }
+</section>

@@ -1,0 +1,34 @@
+﻿@inject AleksaPortfolio.Models.Interfaces.IModuleConverter ModuleConverter
+@model AleksaPortfolio.Models.ViewModels.SocialModuleViewModel
+
+<section class="bg-light py-5">
+    <div class="container px-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-xxl-8">
+                <div class="text-center my-5">
+                    @if(!string.IsNullOrWhiteSpace(Model.MainTitle))
+                    {
+                        <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">@Model.MainTitle</span></h2>
+                    }
+                    @if(!string.IsNullOrWhiteSpace(Model.SmallTitle))
+                    {
+                        <p class="lead fw-light mb-4">@Model.SmallTitle</p>
+                    }
+                    @if(!string.IsNullOrWhiteSpace(Model.ModuleText))
+                    {
+                        <p class="text-muted">@Model.ModuleText</p>
+                    }
+                    @if(Model.SocialLinks != null && Model.SocialLinks.Any())
+                    {
+                        <div class="d-flex justify-content-center fs-2 gap-4">
+                            @foreach(var link in Model.SocialLinks)
+                            {
+                                @await Html.RenderModuleAsync(link, ModuleConverter)
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
