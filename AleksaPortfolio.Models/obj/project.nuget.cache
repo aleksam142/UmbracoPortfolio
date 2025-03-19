@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "v0CinFM1tgM=",
+  "dgSpecHash": "Zps1hrSjd4w=",
   "success": true,
   "projectFilePath": "C:\\UmbracoPortfolio\\AleksaPortfolio.Models\\AleksaPortfolio.Models.csproj",
   "expectedPackageFiles": [
@@ -192,46 +192,5 @@
     "C:\\Users\\Aleksa\\.nuget\\packages\\umbraco.cms.core\\13.5.2\\umbraco.cms.core.13.5.2.nupkg.sha512",
     "C:\\Users\\Aleksa\\.nuget\\packages\\umbraco.cms.infrastructure\\13.5.2\\umbraco.cms.infrastructure.13.5.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Net.Http' 4.3.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-7jgj-8wvc-jh57",
-      "libraryId": "System.Net.Http",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Security.Cryptography.Xml' 4.5.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-vh55-786g-wjwj",
-      "libraryId": "System.Security.Cryptography.Xml",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Text.Json' 8.0.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-8g4q-xg66-9fp4",
-      "libraryId": "System.Text.Json",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Text.RegularExpressions' 4.3.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-cmhx-cq75-c4mj",
-      "libraryId": "System.Text.RegularExpressions",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }
